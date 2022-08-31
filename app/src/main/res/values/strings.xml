@@ -1,7 +1,0 @@
-<resources>
-    <string name="app_name">sensor app</string>
-    <string name="sensor_spec">sensor_spec</string>
-    <string name="acc_output">sensor_output</string>
-    <string name="send_log">send_log</string>
-    <string name="back">back</string>
-</resources>
