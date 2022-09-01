@@ -56,6 +56,13 @@ public class MainActivity extends AppCompatActivity {
         initAddDeviceButton();
     }
 
+    @Override
+    protected void onResume() {
+        super.onResume();
+        initConnectDeviceSpinner();
+    }
+
+
     private void checkDeviceSupportBluetooth() {
         BluetoothAdapter bluetoothAdapter = BluetoothAdapter.getDefaultAdapter();
         if (bluetoothAdapter == null) {
@@ -97,6 +104,7 @@ public class MainActivity extends AppCompatActivity {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
                     }
+
                 })
                 .show();
     }
@@ -110,6 +118,25 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+    }
+
+    private void initConnectDeviceSpinner() {
+        mConnectDeviceSpinner = findViewById(R.id.connect_device_spinner);
+        Set<BluetoothDevice> pairedDevices = mBluetoothAdapter.getBondedDevices();
+
+        if(pairedDevices != null) {
+            mConnectDeviceAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item);
+
+            if(pairedDevices.isEmpty()) {
+                mConnectDeviceAdapter.add(CONNECT_DEVICE_NONE);
+            } else {
+                for (BluetoothDevice bluetoothDevice : pairedDevices) {
+                    String deviceName = bluetoothDevice.getName();
+                    mConnectDeviceAdapter.add(deviceName);
+                }
+            }
+        }
+        mConnectDeviceSpinner.setAdapter(mConnectDeviceAdapter);
     }
 
 
