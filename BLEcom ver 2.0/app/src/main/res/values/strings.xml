@@ -1,0 +1,4 @@
+<resources>
+    <string name="app_name">BLEcom ver 2.0</string>
+    <string name="motor_operation">motor_operation</string>
+</resources>
