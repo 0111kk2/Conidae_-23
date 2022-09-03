@@ -17,7 +17,6 @@ public class Tuning extends AppCompatActivity
     private TextView txtX,txtY,txtZ;
     private final float[] accelerometerReading = new float[3];
     private final float[] magnetometerReading = new float[3];
-
     private final float[] rotationMatrix = new float[9];
     private final float[] orientationAngles = new float[3];
     @Override
