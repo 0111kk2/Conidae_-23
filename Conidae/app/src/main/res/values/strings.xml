@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">Conidae</string>
+    <string name="btnStart">Start</string>
+    <string name="btnLog">Log</string>
+    <string name="btnTune">Tuning</string>
+    <string name="btnReturn">RETURN</string>
+    <string name="txtX">X</string>
+    <string name="txtY">Y</string>
+    <string name="txtZ">Z</string>
+</resources>
