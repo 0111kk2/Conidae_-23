@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">0903 app</string>
+    <string name="btnStart">START</string>
+    <string name="btnStop">STOP</string>
 </resources>
