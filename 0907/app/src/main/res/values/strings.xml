@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">0907</string>
+    <string name="lan">緯度</string>
+    <string name="lon">経度</string>
+    <string name="calre">算出結果</string>
+    <string name="phi">角度指定</string>
+    <string name="calcurate">現在位置との関係を計算</string>
+</resources>

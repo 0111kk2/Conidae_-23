@@ -171,7 +171,6 @@ public class MainActivity extends AppCompatActivity implements LocationListener,
         System.out.println(azimuth1);
     }
 
-
     //main
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -195,7 +194,6 @@ public class MainActivity extends AppCompatActivity implements LocationListener,
         });
         Button btnStop = findViewById(R.id.btnStop);
         btnStop.setOnClickListener(view -> inter = false);
-
     }
     @Override
     protected void onResume(){
@@ -291,6 +289,7 @@ public class MainActivity extends AppCompatActivity implements LocationListener,
             mActivityResultLauncher.launch(enableBtIntent);
         }
     }
+
     private void showBluetoothDisabledAlertDialogAndFinishApp() {
         new AlertDialog.Builder(MainActivity.this)
                 .setTitle("BluetoothがOFFになっています。")
@@ -303,6 +302,7 @@ public class MainActivity extends AppCompatActivity implements LocationListener,
                 })
                 .show();
     }
+
     private void initAddDeviceButton() {
         mAddDeviceButton = findViewById(R.id.add_device_button);
         mAddDeviceButton.setOnClickListener(new View.OnClickListener() {
@@ -312,7 +312,10 @@ public class MainActivity extends AppCompatActivity implements LocationListener,
                 startActivity(intent);
             }
         });
-    }private void initConnectButton() {
+    }
+
+
+    private void initConnectButton() {
         mConnectStatusTextView = findViewById(R.id.connect_status_text_view);
         mBluetoothSocket = null;
         mOutputStream = null;
