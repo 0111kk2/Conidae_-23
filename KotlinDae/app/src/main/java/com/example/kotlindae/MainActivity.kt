@@ -1,13 +1,11 @@
 package com.example.kotlindae
 
 import android.Manifest
-import android.content.Context
 import android.content.pm.PackageManager
 import android.os.Build
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.widget.Button
 import android.widget.Toast
+import androidx.appcompat.app.AppCompatActivity
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
 import com.example.kotlindae.databinding.ActivityMainBinding
@@ -30,22 +28,21 @@ class MainActivity : AppCompatActivity() {
             )
         }
         binding.btnStart.setOnClickListener {
-            //conidae = InductionKonidae()
-            //conidae.setGoals(35.6990494564085, 139.74353592943586)
             blue = BluetoothKommunication("Shell",this)
-
+            conidae = InductionKonidae(blue,this)
+            conidae.setGoals(35.6990494564085, 139.74353592943586)
             }
         binding.btnStop.setOnClickListener {
-        //    conidae.quit()
-            blue.quit()
+            conidae.quit()
         }
-        binding.btnAction.setOnClickListener { blue.sendData("50,50;") }
 
+        binding.btnAction.setOnClickListener {
+        }
     }
 
     override fun onDestroy() {
         super.onDestroy()
-        blue.quit()
+        conidae.quit()
     }
     private fun allPermissionsGranted() = REQUIRED_PERMISSIONS.all {
         ContextCompat.checkSelfPermission(

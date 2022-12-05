@@ -62,7 +62,7 @@ class KShell(bluetooth:BluetoothKommunication,context: Context) :SensorEventList
         // "mOrientationAngles" now has up-to-date information.
     }
     override fun onAccuracyChanged(Sensor: Sensor?, p1: Int) {
-        TODO("Not yet implemented")
+        println(p1)
     }
 
     private fun locationStart(){
@@ -100,6 +100,14 @@ class KShell(bluetooth:BluetoothKommunication,context: Context) :SensorEventList
     fun axel(left:Int,right:Int){
         mRight = 90-right
         mLeft = left+90
-        blue.sendData("{$mLeft},{$mRight}")
+        blue.sendData("$mLeft,$mRight;")
+    }
+    fun quit(){
+        //停止
+        blue.sendData("0,0;")
+        //Bluetooth接続切る
+        blue.quit()
+        //センサの登録を解除
+        sensorManager.unregisterListener(this)
     }
 }

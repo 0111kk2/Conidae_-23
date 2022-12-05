@@ -21,37 +21,43 @@ class KShijimi(kShell: KShell):Runnable{
             } catch (e: InterruptedException) {
                 //スレッドを停止させる指示が出たときの処理。
                 e.printStackTrace()
-                closeAllFiles()
                 break
             }
         }
     }
+    fun quit(){
+        closeAllFiles()
+    }
     //センサ値を記録する関数。
-    fun sensorRecord() {
+    private fun sensorRecord() {
         println("センサ値を記録だミ")
         //センサ値はshellインスタンスからゲッターにて呼び出す。
-        val logStr = "$shell.nowLat,$shell.nowLon"
-        writeLog(logStr, true, sensorFw)
+        if((shell.nowLat!=null)&&(shell.nowLon!=null)){
+            val logStr = "${shell.nowLat},${shell.nowLon}"
+            writeLog(logStr, true, sensorFw)
+        }
     }
     //ドライブの様子を記録する関数。引数に書き込みたい文字列を渡す。
     fun driveRecord(str: String?) {
         writeLog(str!!, true, driveFw)
     }
+
+
+    //クラスの静的メンバ．参照されるファイルがインスタンス化によって違うものにならないようにする．新しいファイルはresumeが呼び出されると作られる．
     companion object{
         private lateinit var sensorFw:BufferedWriter
         private lateinit var driveFw:BufferedWriter
+
         init {
             if(isExternalStorageWritable()){
                 initFiles()
             }
         }
-
         private fun initFiles(){
             println("ファイルを作るミ")
             val stamp = getTimeStamp()
             val sensorLogFileName = "SensorLog_$stamp.txt"
             val driveLogFileName = "DriveLog_$stamp.txt"
-            //ドキュメントディレクトリ内にファイルを作成。この場合はgetExternalStoragePublicDirectoryを利用。
             //ドキュメントディレクトリ内にファイルを作成。この場合はgetExternalStoragePublicDirectoryを利用。
             val sensorLogFile = File(
                 Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOCUMENTS),

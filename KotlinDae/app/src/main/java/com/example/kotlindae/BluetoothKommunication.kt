@@ -26,8 +26,10 @@ class BluetoothKommunication(deviceName: String,context: Context) {
     private var count = 0
     private var connectDeviceName: String = deviceName
     private var mainActivity = context
-
-    fun startBluetoothConnection(){
+    init {
+        startBluetoothConnection()
+    }
+    private fun startBluetoothConnection(){
         mBluetoothManager = mainActivity.getSystemService(Context.BLUETOOTH_SERVICE) as BluetoothManager
         mBluetoothAdapter = if(Build.VERSION.SDK_INT>31){
             mBluetoothManager.adapter

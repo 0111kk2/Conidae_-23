@@ -4,10 +4,7 @@ import android.content.Context
 import android.location.Location
 import kotlin.math.abs
 
-class InductionKonidae//KShellをインスタンス化
-//KShijimiをインスタンス化
-//ログのスレッドを開始
-    (BluetoothKommunication: BluetoothKommunication,context: Context) {
+class InductionKonidae(blue: BluetoothKommunication,context: Context) {
     //取り合えずインスタンス化が必要なスレッドクラス、shell,shijimiを宣言。lateinitとついているのはあとで初期化をするという意味。
     // kotlinはvarと宣言したら代入した値に対して型を推定してくれるが、lateinitの場合は型宣言が必要な模様。
     private lateinit var driveThread: Thread
@@ -29,7 +26,7 @@ class InductionKonidae//KShellをインスタンス化
     init {
         println("車を用意するんだえ")
         println("エンジン始動だえ")
-        shell = KShell(BluetoothKommunication,context)
+        shell = KShell(blue,context)
         println("しじみも乗るんだえ")
         shijimi = KShijimi(shell)
         driveLog("しじみ、行くんだえ")
@@ -37,10 +34,14 @@ class InductionKonidae//KShellをインスタンス化
         driveLog("運転開始だえ")
         drive()
     }
-    fun drive() {
+    private fun drive() {
         driveLog("運転するんだえ")
         //スレッドを開始
         driveThread = Thread {
+            while ((shell.nowLat==null)||(shell.nowLon==null)){
+                driveLog("現在値取得中だえ")
+                Thread.sleep(1000)
+            }
             calculateToGoal()
             while (distance!! > 10) {
                 //目標方位を向く
@@ -77,11 +78,10 @@ class InductionKonidae//KShellをインスタンス化
         driveThread.interrupt()
         shijimiThread.interrupt()
         driveLog("止まるんだえ")
-        shell.axel(0,0)
+        shell.quit()
         driveLog("車を降りるんだえ")
-        //shellのonPause()を呼び出し
-        shell.onPause()
         driveLog("しじみも降りるんだえ")
+        shijimi.quit()
     }
     private fun induction(){
         do{
@@ -118,7 +118,6 @@ class InductionKonidae//KShellをインスタンス化
         driveLog("センサ値を取得するんだえ")
         //センサ値の取得
         orientationAngles = shell.orientationAngles
-        driveLog("$orientationAngles")
         //現在の方位角を取得
         val nowAzimuth = orientationAngles[0]*180/Math.PI
         val delta = goalAzimuth?.minus(nowAzimuth)
