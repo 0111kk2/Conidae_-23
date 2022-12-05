@@ -7,7 +7,7 @@ import kotlin.math.abs
 class InductionKonidae//KShellをインスタンス化
 //KShijimiをインスタンス化
 //ログのスレッドを開始
-    (keyOfBluetoothKommunication: BluetoothKommunication,context: Context) {
+    (BluetoothKommunication: BluetoothKommunication,context: Context) {
     //取り合えずインスタンス化が必要なスレッドクラス、shell,shijimiを宣言。lateinitとついているのはあとで初期化をするという意味。
     // kotlinはvarと宣言したら代入した値に対して型を推定してくれるが、lateinitの場合は型宣言が必要な模様。
     private lateinit var driveThread: Thread
@@ -29,12 +29,13 @@ class InductionKonidae//KShellをインスタンス化
     init {
         println("車を用意するんだえ")
         println("エンジン始動だえ")
-        shell = KShell(keyOfBluetoothKommunication,context)
+        shell = KShell(BluetoothKommunication,context)
         println("しじみも乗るんだえ")
-        shijimi = KShijimi
-        startLog()
+        shijimi = KShijimi(shell)
         driveLog("しじみ、行くんだえ")
+        startLog()
         driveLog("運転開始だえ")
+        drive()
     }
     fun drive() {
         driveLog("運転するんだえ")
