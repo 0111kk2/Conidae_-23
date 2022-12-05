@@ -1,6 +1,7 @@
 package com.example.kotlindae
 
 import android.Manifest.permission.ACCESS_FINE_LOCATION
+import android.app.Activity
 import android.content.Context
 import android.content.Intent
 import android.content.pm.PackageManager
@@ -16,21 +17,21 @@ import android.util.Log
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
 
-object KShell :SensorEventListener, LocationListener{
+class KShell(bluetooth:BluetoothKommunication,context: Context) :SensorEventListener, LocationListener{
     //姿勢角関連
     private lateinit var sensorManager: SensorManager
     private val accelerometerReading = FloatArray(3)
     private val magnetometerReading = FloatArray(3)
 
     private val rotationMatrix = FloatArray(9)
-    private val orientationAngles = FloatArray(3)
+    val orientationAngles = FloatArray(3)
     //GPS関連
     private lateinit var locationManager: LocationManager
     var nowLat:Double? = null
     var nowLon:Double? = null
-    private var mContext:MainActivity = MainActivity()
+    private var mContext:Context = context
     //Bluetooth関連
-    private var blue:BluetoothKommunication = BluetoothKommunication("Shell")
+    private var blue:BluetoothKommunication = bluetooth
     private var mRight = 0
     private var mLeft = 0
     init {
@@ -43,6 +44,7 @@ object KShell :SensorEventListener, LocationListener{
         } else if (event.sensor.type == Sensor.TYPE_MAGNETIC_FIELD) {
             System.arraycopy(event.values, 0, magnetometerReading, 0, magnetometerReading.size)
         }
+        updateOrientationAngles()
     }
     private fun updateOrientationAngles(){
         // Update rotation matrix, which is needed to update orientation angles.
@@ -52,15 +54,17 @@ object KShell :SensorEventListener, LocationListener{
             accelerometerReading,
             magnetometerReading
         )
-
+        var rotationFinal = FloatArray(9)
+        //軸の変更
+        SensorManager.remapCoordinateSystem(rotationMatrix,SensorManager.AXIS_Z,SensorManager.AXIS_MINUS_X,rotationFinal)
         // "mRotationMatrix" now has up-to-date information.
-        SensorManager.getOrientation(rotationMatrix, orientationAngles)
-
+        SensorManager.getOrientation(rotationFinal, orientationAngles)
         // "mOrientationAngles" now has up-to-date information.
     }
     override fun onAccuracyChanged(Sensor: Sensor?, p1: Int) {
         TODO("Not yet implemented")
     }
+
     private fun locationStart(){
         locationManager = mContext.getSystemService(Context.LOCATION_SERVICE) as LocationManager
         if(locationManager.isProviderEnabled(LocationManager.GPS_PROVIDER)){
@@ -71,7 +75,8 @@ object KShell :SensorEventListener, LocationListener{
             mContext.startActivity(settingsIntent)
         }
         if(ContextCompat.checkSelfPermission(mContext, ACCESS_FINE_LOCATION)!=PackageManager.PERMISSION_GRANTED){
-            ActivityCompat.requestPermissions(mContext,
+            ActivityCompat.requestPermissions(
+                mContext as Activity,
                 mutableListOf(ACCESS_FINE_LOCATION).toTypedArray(),1000)
         }
         locationManager.requestLocationUpdates(LocationManager.GPS_PROVIDER, 100, 1f, this)
@@ -89,7 +94,10 @@ object KShell :SensorEventListener, LocationListener{
         nowLat = location.latitude
         nowLon = location.longitude
     }
-    public fun axel(left:Int,right:Int){
+    fun onPause(){
+        sensorManager.unregisterListener(this)
+    }
+    fun axel(left:Int,right:Int){
         mRight = 90-right
         mLeft = left+90
         blue.sendData("{$mLeft},{$mRight}")

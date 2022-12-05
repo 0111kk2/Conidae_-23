@@ -1,18 +1,26 @@
 package com.example.kotlindae
 
 import android.Manifest
+import android.content.Context
 import android.content.pm.PackageManager
 import android.os.Build
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.widget.Button
 import android.widget.Toast
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
+import com.example.kotlindae.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
+    private lateinit var binding: ActivityMainBinding
+    private lateinit var conidae: InductionKonidae
+    private lateinit var blue:BluetoothKommunication
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
+        binding = ActivityMainBinding.inflate(layoutInflater)
+        val view = binding.root
+        setContentView(view)
         if(allPermissionsGranted()){
             startApplication()
         }
@@ -21,6 +29,23 @@ class MainActivity : AppCompatActivity() {
                 this, REQUIRED_PERMISSIONS, REQUEST_CODE_PERMISSIONS
             )
         }
+        binding.btnStart.setOnClickListener {
+            //conidae = InductionKonidae()
+            //conidae.setGoals(35.6990494564085, 139.74353592943586)
+            blue = BluetoothKommunication("Shell",this)
+
+            }
+        binding.btnStop.setOnClickListener {
+        //    conidae.quit()
+            blue.quit()
+        }
+        binding.btnAction.setOnClickListener { blue.sendData("50,50;") }
+
+    }
+
+    override fun onDestroy() {
+        super.onDestroy()
+        blue.quit()
     }
     private fun allPermissionsGranted() = REQUIRED_PERMISSIONS.all {
         ContextCompat.checkSelfPermission(

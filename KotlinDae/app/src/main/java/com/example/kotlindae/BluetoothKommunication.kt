@@ -1,6 +1,7 @@
 package com.example.kotlindae
 
 import android.Manifest
+import android.app.Activity
 import android.bluetooth.BluetoothAdapter
 import android.bluetooth.BluetoothDevice
 import android.bluetooth.BluetoothManager
@@ -16,21 +17,17 @@ import java.io.InputStream
 import java.io.OutputStream
 import java.util.*
 
-class BluetoothKommunication() {
+class BluetoothKommunication(deviceName: String,context: Context) {
     private lateinit var mBluetoothManager: BluetoothManager
     private lateinit var mBluetoothAdapter: BluetoothAdapter
     lateinit var mBluetoothSocket: BluetoothSocket
     private lateinit var mInputStream: InputStream
     private lateinit var mOutputStream: OutputStream
     private var count = 0
-    private lateinit var connectDeviceName: String
-    private lateinit var shijimi:KShijimi
-    constructor(deviceName: String) : this() {
-        connectDeviceName = deviceName
-        shijimi = KShijimi
-        startBluetoothConnection()
-    }
-    private fun startBluetoothConnection(){
+    private var connectDeviceName: String = deviceName
+    private var mainActivity = context
+
+    public fun startBluetoothConnection(){
         mBluetoothManager = mainActivity.getSystemService(Context.BLUETOOTH_SERVICE) as BluetoothManager
         mBluetoothAdapter = if(Build.VERSION.SDK_INT>31){
             mBluetoothManager.adapter
@@ -85,6 +82,7 @@ class BluetoothKommunication() {
             mBluetoothSocket.connect()
             mOutputStream = mBluetoothSocket.outputStream
             mInputStream = mBluetoothSocket.inputStream
+            println("接続ができたんだえ")
         }catch (e:Exception){
             println("何らかの問題が発生したんだえ")
             try{
@@ -119,12 +117,14 @@ class BluetoothKommunication() {
             ) != PackageManager.PERMISSION_GRANTED
         ) {
             ActivityCompat.requestPermissions(
-                mainActivity, REQUIRED_PERMISSIONS, REQUEST_CODE_PERMISSIONS
+                mainActivity as Activity, REQUIRED_PERMISSIONS, REQUEST_CODE_PERMISSIONS
             )
         }
     }
+    fun quit(){
+        mBluetoothSocket.close()
+    }
     companion object{
-        private val mainActivity = MainActivity()
         private const val REQUEST_CODE_PERMISSIONS = 60
         private val REQUIRED_PERMISSIONS =
             mutableListOf (

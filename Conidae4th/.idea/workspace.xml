@@ -4,14 +4,7 @@
     <option name="autoReloadType" value="NONE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="39b74b55-0cf0-4b34-8b85-538f4c417b79" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../SensorTest/.idea/modules/SensorTest.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../SensorTest/.idea/modules/app/SensorTest.app.androidTest.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../SensorTest/.idea/modules/app/SensorTest.app.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../SensorTest/.idea/modules/app/SensorTest.app.main.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../SensorTest/.idea/modules/app/SensorTest.app.unitTest.iml" afterDir="false" />
-    </list>
+    <list default="true" id="39b74b55-0cf0-4b34-8b85-538f4c417b79" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -41,7 +34,7 @@
     <property name="RunOnceActivity.cidr.known.project.marker" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="cidr.known.project.marker" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../KotlinDae" />
   </component>
   <component name="RunManager">
     <configuration name="app" type="AndroidRunConfigurationType" factoryName="Android App">
