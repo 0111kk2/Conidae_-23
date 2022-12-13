@@ -1,0 +1,27 @@
+{
+  "buildFiles": [
+    "/Users/kokeshi/Documents/1208のコピー/sdk/libcxx_helper/CMakeLists.txt"
+  ],
+  "cleanCommandsComponents": [
+    [
+      "/Users/kokeshi/Library/Android/sdk/cmake/3.18.1/bin/ninja",
+      "-C",
+      "/Users/kokeshi/Documents/1208のコピー/sdk/.cxx/RelWithDebInfo/3k716v4w/x86",
+      "clean"
+    ]
+  ],
+  "buildTargetsCommandComponents": [
+    "/Users/kokeshi/Library/Android/sdk/cmake/3.18.1/bin/ninja",
+    "-C",
+    "/Users/kokeshi/Documents/1208のコピー/sdk/.cxx/RelWithDebInfo/3k716v4w/x86",
+    "{LIST_OF_TARGETS_TO_BUILD}"
+  ],
+  "libraries": {
+    "opencv_jni_shared::@6890427a1f51a3e7e1df": {
+      "artifactName": "opencv_jni_shared",
+      "abi": "x86",
+      "output": "/Users/kokeshi/Documents/1208のコピー/sdk/.cxx/RelWithDebInfo/3k716v4w/x86/libopencv_jni_shared.a",
+      "runtimeFiles": []
+    }
+  }
+}

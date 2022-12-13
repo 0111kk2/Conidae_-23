@@ -1,0 +1,170 @@
+[
+  {
+    "level_": 0,
+    "message_": "Start JSON generation. Platform version: 21 min SDK version: x86",
+    "file_": "/Users/kokeshi/Documents/1208のコピー/sdk/libcxx_helper/CMakeLists.txt",
+    "tag_": "release|x86",
+    "diagnosticCode_": 0,
+    "memoizedIsInitialized": 1,
+    "unknownFields": {
+      "fields": {},
+      "fieldsDescending": {}
+    },
+    "memoizedSize": -1,
+    "memoizedHashCode": 282752745
+  },
+  {
+    "level_": 0,
+    "message_": "rebuilding JSON /Users/kokeshi/Documents/1208のコピー/sdk/.cxx/RelWithDebInfo/3k716v4w/x86/android_gradle_build.json due to:",
+    "file_": "/Users/kokeshi/Documents/1208のコピー/sdk/libcxx_helper/CMakeLists.txt",
+    "tag_": "release|x86",
+    "diagnosticCode_": 0,
+    "memoizedIsInitialized": 1,
+    "unknownFields": {
+      "fields": {},
+      "fieldsDescending": {}
+    },
+    "memoizedSize": -1,
+    "memoizedHashCode": 1891862589
+  },
+  {
+    "level_": 0,
+    "message_": "- expected json /Users/kokeshi/Documents/1208のコピー/sdk/.cxx/RelWithDebInfo/3k716v4w/x86/android_gradle_build.json file is not present, will remove stale json folder",
+    "file_": "/Users/kokeshi/Documents/1208のコピー/sdk/libcxx_helper/CMakeLists.txt",
+    "tag_": "release|x86",
+    "diagnosticCode_": 0,
+    "memoizedIsInitialized": 1,
+    "unknownFields": {
+      "fields": {},
+      "fieldsDescending": {}
+    },
+    "memoizedSize": -1,
+    "memoizedHashCode": 817690325
+  },
+  {
+    "level_": 0,
+    "message_": "- missing previous command file /Users/kokeshi/Documents/1208のコピー/sdk/.cxx/RelWithDebInfo/3k716v4w/x86/metadata_generation_command.txt, will remove stale json folder",
+    "file_": "/Users/kokeshi/Documents/1208のコピー/sdk/libcxx_helper/CMakeLists.txt",
+    "tag_": "release|x86",
+    "diagnosticCode_": 0,
+    "memoizedIsInitialized": 1,
+    "unknownFields": {
+      "fields": {},
+      "fieldsDescending": {}
+    },
+    "memoizedSize": -1,
+    "memoizedHashCode": 321638675
+  },
+  {
+    "level_": 0,
+    "message_": "- command changed from previous, will remove stale json folder",
+    "file_": "/Users/kokeshi/Documents/1208のコピー/sdk/libcxx_helper/CMakeLists.txt",
+    "tag_": "release|x86",
+    "diagnosticCode_": 0,
+    "memoizedIsInitialized": 1,
+    "unknownFields": {
+      "fields": {},
+      "fieldsDescending": {}
+    },
+    "memoizedSize": -1,
+    "memoizedHashCode": -1551084923
+  },
+  {
+    "level_": 0,
+    "message_": "created folder \u0027/Users/kokeshi/Documents/1208のコピー/sdk/.cxx/RelWithDebInfo/3k716v4w/x86\u0027",
+    "file_": "/Users/kokeshi/Documents/1208のコピー/sdk/libcxx_helper/CMakeLists.txt",
+    "tag_": "release|x86",
+    "diagnosticCode_": 0,
+    "memoizedIsInitialized": 1,
+    "unknownFields": {
+      "fields": {},
+      "fieldsDescending": {}
+    },
+    "memoizedSize": -1,
+    "memoizedHashCode": 896811414
+  },
+  {
+    "level_": 0,
+    "message_": "executing cmake /Users/kokeshi/Library/Android/sdk/cmake/3.18.1/bin/cmake \\\n  -H/Users/kokeshi/Documents/1208のコピー/sdk/libcxx_helper \\\n  -DCMAKE_SYSTEM_NAME\u003dAndroid \\\n  -DCMAKE_EXPORT_COMPILE_COMMANDS\u003dON \\\n  -DCMAKE_SYSTEM_VERSION\u003d21 \\\n  -DANDROID_PLATFORM\u003dandroid-21 \\\n  -DANDROID_ABI\u003dx86 \\\n  -DCMAKE_ANDROID_ARCH_ABI\u003dx86 \\\n  -DANDROID_NDK\u003d/Users/kokeshi/Library/Android/sdk/ndk/23.1.7779620 \\\n  -DCMAKE_ANDROID_NDK\u003d/Users/kokeshi/Library/Android/sdk/ndk/23.1.7779620 \\\n  -DCMAKE_TOOLCHAIN_FILE\u003d/Users/kokeshi/Library/Android/sdk/ndk/23.1.7779620/build/cmake/android.toolchain.cmake \\\n  -DCMAKE_MAKE_PROGRAM\u003d/Users/kokeshi/Library/Android/sdk/cmake/3.18.1/bin/ninja \\\n  -DCMAKE_LIBRARY_OUTPUT_DIRECTORY\u003d/Users/kokeshi/Documents/1208のコピー/sdk/build/intermediates/cxx/RelWithDebInfo/3k716v4w/obj/x86 \\\n  -DCMAKE_RUNTIME_OUTPUT_DIRECTORY\u003d/Users/kokeshi/Documents/1208のコピー/sdk/build/intermediates/cxx/RelWithDebInfo/3k716v4w/obj/x86 \\\n  -DCMAKE_BUILD_TYPE\u003dRelWithDebInfo \\\n  -B/Users/kokeshi/Documents/1208のコピー/sdk/.cxx/RelWithDebInfo/3k716v4w/x86 \\\n  -GNinja \\\n  -DANDROID_STL\u003dc++_shared\n",
+    "file_": "/Users/kokeshi/Documents/1208のコピー/sdk/libcxx_helper/CMakeLists.txt",
+    "tag_": "release|x86",
+    "diagnosticCode_": 0,
+    "memoizedIsInitialized": 1,
+    "unknownFields": {
+      "fields": {},
+      "fieldsDescending": {}
+    },
+    "memoizedSize": -1,
+    "memoizedHashCode": -1605377615
+  },
+  {
+    "level_": 0,
+    "message_": "/Users/kokeshi/Library/Android/sdk/cmake/3.18.1/bin/cmake \\\n  -H/Users/kokeshi/Documents/1208のコピー/sdk/libcxx_helper \\\n  -DCMAKE_SYSTEM_NAME\u003dAndroid \\\n  -DCMAKE_EXPORT_COMPILE_COMMANDS\u003dON \\\n  -DCMAKE_SYSTEM_VERSION\u003d21 \\\n  -DANDROID_PLATFORM\u003dandroid-21 \\\n  -DANDROID_ABI\u003dx86 \\\n  -DCMAKE_ANDROID_ARCH_ABI\u003dx86 \\\n  -DANDROID_NDK\u003d/Users/kokeshi/Library/Android/sdk/ndk/23.1.7779620 \\\n  -DCMAKE_ANDROID_NDK\u003d/Users/kokeshi/Library/Android/sdk/ndk/23.1.7779620 \\\n  -DCMAKE_TOOLCHAIN_FILE\u003d/Users/kokeshi/Library/Android/sdk/ndk/23.1.7779620/build/cmake/android.toolchain.cmake \\\n  -DCMAKE_MAKE_PROGRAM\u003d/Users/kokeshi/Library/Android/sdk/cmake/3.18.1/bin/ninja \\\n  -DCMAKE_LIBRARY_OUTPUT_DIRECTORY\u003d/Users/kokeshi/Documents/1208のコピー/sdk/build/intermediates/cxx/RelWithDebInfo/3k716v4w/obj/x86 \\\n  -DCMAKE_RUNTIME_OUTPUT_DIRECTORY\u003d/Users/kokeshi/Documents/1208のコピー/sdk/build/intermediates/cxx/RelWithDebInfo/3k716v4w/obj/x86 \\\n  -DCMAKE_BUILD_TYPE\u003dRelWithDebInfo \\\n  -B/Users/kokeshi/Documents/1208のコピー/sdk/.cxx/RelWithDebInfo/3k716v4w/x86 \\\n  -GNinja \\\n  -DANDROID_STL\u003dc++_shared\n",
+    "file_": "/Users/kokeshi/Documents/1208のコピー/sdk/libcxx_helper/CMakeLists.txt",
+    "tag_": "release|x86",
+    "diagnosticCode_": 0,
+    "memoizedIsInitialized": 1,
+    "unknownFields": {
+      "fields": {},
+      "fieldsDescending": {}
+    },
+    "memoizedSize": -1,
+    "memoizedHashCode": 34922800
+  },
+  {
+    "level_": 0,
+    "message_": "Exiting generation of /Users/kokeshi/Documents/1208のコピー/sdk/.cxx/RelWithDebInfo/3k716v4w/x86/compile_commands.json.bin normally",
+    "file_": "/Users/kokeshi/Documents/1208のコピー/sdk/libcxx_helper/CMakeLists.txt",
+    "tag_": "release|x86",
+    "diagnosticCode_": 0,
+    "memoizedIsInitialized": 1,
+    "unknownFields": {
+      "fields": {},
+      "fieldsDescending": {}
+    },
+    "memoizedSize": -1,
+    "memoizedHashCode": -1484272901
+  },
+  {
+    "level_": 0,
+    "message_": "done executing cmake",
+    "file_": "/Users/kokeshi/Documents/1208のコピー/sdk/libcxx_helper/CMakeLists.txt",
+    "tag_": "release|x86",
+    "diagnosticCode_": 0,
+    "memoizedIsInitialized": 1,
+    "unknownFields": {
+      "fields": {},
+      "fieldsDescending": {}
+    },
+    "memoizedSize": -1,
+    "memoizedHashCode": -1863431174
+  },
+  {
+    "level_": 0,
+    "message_": "write command file /Users/kokeshi/Documents/1208のコピー/sdk/.cxx/RelWithDebInfo/3k716v4w/x86/metadata_generation_command.txt",
+    "file_": "/Users/kokeshi/Documents/1208のコピー/sdk/libcxx_helper/CMakeLists.txt",
+    "tag_": "release|x86",
+    "diagnosticCode_": 0,
+    "memoizedIsInitialized": 1,
+    "unknownFields": {
+      "fields": {},
+      "fieldsDescending": {}
+    },
+    "memoizedSize": -1,
+    "memoizedHashCode": -663599929
+  },
+  {
+    "level_": 0,
+    "message_": "JSON generation completed without problems",
+    "file_": "/Users/kokeshi/Documents/1208のコピー/sdk/libcxx_helper/CMakeLists.txt",
+    "tag_": "release|x86",
+    "diagnosticCode_": 0,
+    "memoizedIsInitialized": 1,
+    "unknownFields": {
+      "fields": {},
+      "fieldsDescending": {}
+    },
+    "memoizedSize": -1,
+    "memoizedHashCode": 74641910
+  }
+]
