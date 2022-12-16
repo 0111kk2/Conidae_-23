@@ -1,4 +1,0 @@
-/Users/kokeshi/Library/Android/sdk/cmake/3.18.1/bin/ninja \
-  -C \
-  /Users/kokeshi/Documents/1208のコピー/sdk/.cxx/Debug/4t6a60w5/arm64-v8a \
-  opencv_jni_shared

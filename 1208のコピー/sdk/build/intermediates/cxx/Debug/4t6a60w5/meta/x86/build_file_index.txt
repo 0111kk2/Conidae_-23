@@ -1,1 +1,0 @@
-/Users/kokeshi/Documents/1208のコピー/sdk/libcxx_helper/CMakeLists.txt
