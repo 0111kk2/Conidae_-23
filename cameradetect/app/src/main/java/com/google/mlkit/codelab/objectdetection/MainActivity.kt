@@ -40,6 +40,7 @@ import java.io.File
 import java.io.IOException
 import java.text.SimpleDateFormat
 import java.util.*
+import kotlin.math.abs
 import kotlin.math.max
 import kotlin.math.min
 
@@ -320,10 +321,14 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
     private fun debugPrint(detectedObjects: List<DetectedObject>) {
         detectedObjects.forEachIndexed { index, detectedObject ->
             val box = detectedObject.boundingBox
+            var cod_x = abs((box.left - box.right)/2)
+            var cod_y = abs((box.top - box.bottom) /2)
+
 
             Log.d(TAG, "Detected object: $index")
             Log.d(TAG, " trackingId: ${detectedObject.trackingId}")
             Log.d(TAG, " boundingBox: (${box.left}, ${box.top}) - (${box.right},${box.bottom})")
+            Log.d(TAG, "object center: (${cod_x},${cod_y})")
             detectedObject.labels.forEach {
                 Log.d(TAG, " categories: ${it.text}")
                 Log.d(TAG, " confidence: ${it.confidence}")
